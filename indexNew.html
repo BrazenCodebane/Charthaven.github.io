@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazen's Charts</title>
+    <style>
+        header {
+            height: 3vh;
+            font-size: large;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 90vh;
+            background-color: #333;
+            color: white; /* Added for better text visibility */
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            height: 50%;
+            padding: 10px; /* Added padding to the container */
+        }
+        .tradingview-widget-container {
+            padding: 10px; /* Added padding to each widget container */
+            border-radius: 5px; /* Optional: rounded corners */
+            background-color: rgba(66, 66, 66, 0.8); /* Slightly transparent background */
+        }
+        .highlight {
+
+            border: 2px solid gold; /* Highlight border */
+
+            background-color: gold; /* Change background color to gold */
+
+            transition: all 0.3s ease; /* Smooth transition */
+
+        }
+        nav {
+            background-color: #333;
+            padding: 10px; /* Added padding to the nav */
+        }
+        nav a {
+            color: yellow;
+            margin-right: 15px; /* Spacing between links */
+            text-decoration: none; /* Remove underline */
+        }
+    </style>
+</head>
+<header>
+    <nav>
+        <a href="index.html" style=" color: yellow;">Brazen</a>
+   
+        <a href="swervo.html" style= "color: aqua;">Swervo</a>
+    
+        <a href="indexNew.html" style="color: red" >Beta</a>
+    
+    </nav>
+</header>
+<body>
+    <div class="container">
+        <!-- TradingView Widget 1 BEGIN -->
+        <div class="tradingview-widget-container" id="widget1" style="height:49%;width:32%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "COINBASE:BTCUSD",
+                "interval": "5",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget 1 END -->
+
+        <!-- TradingView Widget 2 BEGIN -->
+        <div class="tradingview-widget-container" id="widget2" style="height:49%;width:32%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "NASDAQ:NDX",
+                "interval": "5",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": false,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget 2 END -->
+
+        <!-- TradingView Widget 3 BEGIN -->
+        <div class="tradingview-widget-container" id="widget3" style="height:49%;width:34%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "COINBASE:ETHUSD",
+                "interval": "5",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget 3 END -->
+    </div>
+    <br>
+    <div class="container">
+        <!-- TradingView Widget 4 BEGIN -->
+        <div class="tradingview-widget-container" id="widget4" style="height:49%;width:32%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "OANDA:XAUUSD",
+                "interval": "5",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget 4 END -->
+
+        <!-- TradingView Widget 5 BEGIN -->
+        <div class="tradingview-widget-container" id="widget5" style="height:49%;width:32%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "CME_MINI:ES1!",
+                "interval": "D",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget 5 END -->
+
+        <!-- TradingView Widget 6 BEGIN -->
+        <div class="tradingview-widget-container" id="widget6" style="height:49%;width:32%">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+                "autosize": true,
+                "symbol": "TVC:USOIL",
+                "interval": "5",
+                "timezone": "America/Chicago",
+                "theme": "dark",
+                "style": "1",
+                "locale": "en",
+                "backgroundColor": "rgba(66, 66, 66, 1)",
+                "hide_top_toolbar": true,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "hide_volume": true,
+                "support_host": "https://www.tradingview.com"
+            }
+            </script>
+        </div>
+        <!-- TradingView Widget .highlight {
+
+    border: 2px solid red; /* Highlight border */
+
+    background-color: gold; /* Change background color to gold */
+
+    transition: all 0.3s ease; /* Smooth transition */
+
+}6 END -->
+    </div>
+    <script>
+        const axios = require('axios');
+
+        // Define the API endpoint and your API key (if required)
+        const API_URL = 'https://api.example.com/v1/candles'; // Replace with actual API URL
+        
+        // Store previous closing prices
+        let previousClosingPrices = {
+            'widget1': null,
+            'widget2': null,
+            'widget3': null,
+            'widget4': null,
+            'widget5': null,
+            'widget6': null
+        };
+        
+        // Function to fetch the last 1-minute candle closing price and check for price movement
+        async function fetchClosingPrices() {
+            try {
+                // Initialize current closing prices
+                let currentClosingPrices = {};
+
+                // Fetch closing prices for each asset
+                const assets = [
+                    { id: 'widget1', symbol: 'BTC' },
+                    { id: 'widget2', symbol: 'NASDAQ' },
+                    { id: 'widget3', symbol: 'ETH' },
+                    { id: 'widget4', symbol: 'GOLD' },
+                    { id: 'widget5', symbol: 'SP500' },
+                    { id: 'widget6', symbol: 'CRUDE' }
+                ];
+
+                for (const asset of assets) {
+                    const response = await axios.get(`${API_URL}?symbol=${asset.symbol}&interval=1m`);
+                    currentClosingPrices[asset.id] = response.data[response.data.length - 1].close;
+                }
+
+                // Check for price movement for each asset
+                for (const asset of assets) {
+                    checkPriceMovement(asset.id, currentClosingPrices[asset.id], previousClosingPrices[asset.id]);
+                }
+
+                // Update previous closing prices
+                previousClosingPrices = { ...currentClosingPrices };
+
+                // Log the closing prices
+                console.log(currentClosingPrices);
+            } catch (error) {
+                console.error('Error fetching closing prices:', error);
+            }
+        }
+        
+        // Function to check price movement
+        function checkPriceMovement(widgetId, currentPrice, previousPrice) {
+            if (previousPrice !== null) {
+                const priceDifference = Math.abs(currentPrice - previousPrice);
+                const pipValue = (widgetId === 'widget1' || widgetId === 'widget3') ? 0.0001 : 0.01; // Define pip value based on asset
+
+                if (priceDifference > 7 * pipValue) {
+                    console.log(`Signal: ${widgetId} price moved more than 7 pips! Current Price: ${currentPrice}, Previous Price: ${previousPrice}`);
+                    signal(widgetId); // Call signal function to highlight the widget
+                }
+            }
+        }
+
+        // Call the function every 2 seconds
+        setInterval(fetchClosingPrices, 2000);
+
+        function signal(widgetId) {
+            const widgetContainer = document.getElementById(widgetId);
+
+            if (widgetContainer) {
+                widgetContainer.classList.add('highlight');
+
+                setTimeout(() => {
+                    widgetContainer.classList.remove('highlight');
+                }, 2000); // Remove highlight after 2 seconds
+            }
+        }
+
+        // Function to highlight widget 135246 at startup
+        function signalTest() {
+            const widgetContainer = null;
+            for(var i=1;i<=6;i++){
+             widgetContainer = document.getElementById(i);
+            if (widgetContainer) {
+                widgetContainer.classList.add('highlight');
+
+                setTimeout(() => {
+                    widgetContainer.classList.remove('highlight');
+                }, 8000); // Remove highlight after 8 seconds
+            }}
+        }
+
+        // Run signalTest on page load
+        window.onload()= signalTest;
+        
+    </script>
+</body>
+</html>
