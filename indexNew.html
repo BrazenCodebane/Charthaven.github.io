@@ -22,10 +22,18 @@
             height: 50%;
             padding: 10px; /* Added padding to the container */
         }
+        #widget1{background-color: #333;}
+        #widget2{background-color: #333;}
+        #widget3{background-color: #333;}
+        #widget4{background-color: #333;}
+        #widget6{background-color: #333;}
+        #widget5{background-color: #333;}
+        .active{background-color: gold;}
         .tradingview-widget-container {
-            padding: 10px; /* Added padding to each widget container */
+            padding: 4px;/* Added padding to each widget container */
+            
             border-radius: 5px; /* Optional: rounded corners */
-            background-color: rgba(66, 66, 66, 0.8); /* Slightly transparent background */
+            background-color: #333; /* Slightly transparent background */
         }
         
         nav {
@@ -38,6 +46,7 @@
             text-decoration: none; /* Remove underline */
         }
     </style>
+    <script src="script.js"></script>
 </head>
 <header>
     <nav>
@@ -120,7 +129,7 @@
         </div>
         <!-- TradingView Widget 3 END -->
     </div>
-    <br>
+   
     <div class="container">
         <!-- TradingView Widget 4 BEGIN -->
         <div class="tradingview-widget-container" id="widget4" style="height:49%;width:32%">
@@ -191,7 +200,7 @@
         </div>
         <!-- TradingView Widget 6 END -->
     </div>
-    <script src="script.js"></script>
+    
        
 </body>
 </html>

@@ -1,7 +1,24 @@
-const axios = require('axios');
 
-// Define the API endpoint and your API key (if required)
-const API_URL = 'https://api.example.com/v1/candles'; // Replace with actual API URL
+'use strict';
+var request = require('request');
+
+// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=UQUIS0104XJ52Y6T';
+
+request.get({
+    url: url,
+    json: true,
+    headers: {'User-Agent': 'request'}
+  }, (err, res, data) => {
+    if (err) {
+      console.log('Error:', err);
+    } else if (res.statusCode !== 200) {
+      console.log('Status:', res.statusCode);
+    } else {
+      // data is successfully parsed as a JSON object:
+      console.log(data);
+    }
+});
 
 // Store previous closing prices
 let previousClosingPrices = {
@@ -30,7 +47,7 @@ async function fetchClosingPrices() {
         ];
 
         for (const asset of assets) {
-            const response = await axios.get(`${API_URL}?symbol=${asset.symbol}&interval=1m`);
+            const response = await request.get(`${API_URL}?symbol=${asset.symbol}&interval=1m`);
             currentClosingPrices[asset.id] = response.data[response.data.length - 1].close;
         }
 
@@ -51,9 +68,9 @@ async function fetchClosingPrices() {
 
 // Function to check price movement
 function checkPriceMovement(widgetId, currentPrice, previousPrice) {
-    if (previousPrice !== null) {
+    if (previousPrice != null) {
         const priceDifference = Math.abs(currentPrice - previousPrice);
-        const pipValue = (widgetId === 'widget1' || widgetId === 'widget3') ? 0.0001 : 0.01; // Define pip value based on asset
+        const pipValue = (widgetId == 'widget1' || widgetId == 'widget3') ? 0.0001 : 0.01; // Define pip value based on asset
 
         if (priceDifference > 7 * pipValue) {
             console.log(`Signal: ${widgetId} price moved more than 7 pips! Current Price: ${currentPrice}, Previous Price: ${previousPrice}`);
@@ -65,39 +82,40 @@ function checkPriceMovement(widgetId, currentPrice, previousPrice) {
 
 
 function signal(widgetId) {
- if( widgetId === 'widget1'){
+ if( widgetId){
     changeBorder(widgetId);
  } 
 }
 function changeBorder(widgetId) {
 
-    var element = widgetId;
+    var element = document.getElementById(widgetId);;
 
     if (element) {
 
-        element.style.borderColor = 'gold'; // Change border color to gold
+        element.classList.toggle('active'); // Change border color to gold
         
         setTimeout(function() {
 
-            element.style.borderColor = 'grey'; // Reset to original color
+            element.classList.toggle(widgetId); // Reset to original color
 
         }, 4000);
     
-        element.style.borderColor = 'gold'; // Change border color to gold
+        element.classList.toggle('active'); // Change border color to gold
         
         setTimeout(function() {
 
-            element.style.borderColor = 'grey'; // Reset to original color
+            element.classList.toggle(widgetId); // Reset to original color
 
         }, 15000);
     }
 
-}
-// Function to highlight widget 135246 at startup
+} 
+
+// Function to highlight widgets at startup
 function signalTest() {
     const widgetContainer = null;
     for(var i=1;i<=6;i++){
-     widgetContainer = document.getElementById(i);
+     widgetContainer = widget[i];
     if (widgetContainer) {
         widgetContainer.signal();
     }}
@@ -105,15 +123,14 @@ function signalTest() {
 
 // Run signalTest on page load
 function main(){
-    window.onload = function() {
-
-        signalTest(); // Call signalTest on page load
-
-    };
-    getClosingPrices();
-    setInterval(getClosingPrices, 10000); // Run getClosingPrices every 10 seconds
-
+   signalTest();
 
 }
+
+
+
+
+
+
 
 main();
