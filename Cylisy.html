@@ -21,12 +21,7 @@
             height: 32vh;
             padding: 2px; /* Added padding to the container */
         }
-        .image-container{
-            background-color: black;
-            border-radius: 5px;
-            height:33vh;
-            width : 16.5vw;
-        }
+       
         .widget-container {
             padding: 6px;/* Added padding to each widget container */
 
@@ -147,20 +142,34 @@
     </script>
 </div>
 
-<div class="image-container" id="logo" style="height:100%;width:16.5%">
-   
-
-<img src="logo.jpg" > </div>
-<div class= "image-container" id=logo2 style="height: 100%; width: 16.5%"><img src="logo2.jpg">
-
-
-
-
-
-
-
-
+<!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="DOGEUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:DOGEUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
 </div>
+
+
+
+
+
+
+
       <!-- TradingView Widget 1 BEGIN -->
       <div class="widget-container" id="SOLUSD" style="height:100%;width:33%">
         <div class="tradingview-widget-container__widget"></div>
