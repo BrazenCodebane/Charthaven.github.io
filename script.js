@@ -113,9 +113,15 @@ function signalTest() {
 }
 
 // Run signalTest on page load
-function main(){
-  signalTest();
-}
+function main() {
+
+
+    widget1.classList.toggle('active');
+    setTimeout(function() {
+
+widget1.classList.toggle('widget-container'); // Reset to original color
+
+}, 16000);}
 
 
 

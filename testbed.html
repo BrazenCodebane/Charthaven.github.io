@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signal Test Example</title>
     <style>
-        .widget {
+        .tradingview-widget-container {
             width: 200px;
             height: 100px;
-            border: 2px solid grey; /* Initial border color */
+            border: 2px solid grey; /* Initial border color /
             margin: 20px;
             display: inline-block;
-            background-color: grey; /* Initial background color */
+            background-color: grey; / Initial background color */
         }
         .active{background-color: gold;}
         .widget-container{background-color: #333;}
@@ -33,23 +33,14 @@
     <script>
         // Run signalTest on page load
         function main() {
-            
-        
+
+
             widget1.classList.toggle('active');
             setTimeout(function() {
 
 widget1.classList.toggle('widget-container'); // Reset to original color
 
-}, 16000);
-            
-           
+}, 16000);}
 
 
-};
-       
-
-        main(); // Call the main function
-    </script>
-
-</body>
-</html>
+main();
