@@ -91,40 +91,30 @@ function changeBorder(widgetId) {
     var element = document.getElementById(widgetId);;
 
     if (element) {
-
-        element.classList.toggle('active'); // Change border color to gold
-        
+        element.classList.toggle('active');
         setTimeout(function() {
 
-            element.classList.toggle(widgetId); // Reset to original color
+element.classList.toggle('widget-container'); // Reset to original color
 
-        }, 4000);
-    
-        element.classList.toggle('active'); // Change border color to gold
-        
-        setTimeout(function() {
-
-            element.classList.toggle(widgetId); // Reset to original color
-
-        }, 15000);
-    }
-
-} 
-
+}, 16000);
+} }
 // Function to highlight widgets at startup
 function signalTest() {
-    const widgetContainer = null;
-    for(var i=1;i<=6;i++){
-     widgetContainer = widget[i];
-    if (widgetContainer) {
-        widgetContainer.signal();
-    }}
+    for (var i = 1; i <= 6; i++) {
+        // Construct the widget ID using template literals
+        const widgetId = `widget${i}`; // Assuming your widget IDs are widget1, widget2, ..., widget6
+        const widgetContainer = document.getElementById(widgetId); // Get the widget element by ID
+
+        if (widgetContainer) {
+            // Assuming each widget has a signal method
+            widgetContainer.signal(this); // Call the signal method
+        }
+    }
 }
 
 // Run signalTest on page load
 function main(){
-   signalTest();
-
+  signalTest();
 }
 
 

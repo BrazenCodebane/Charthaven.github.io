@@ -18,19 +18,12 @@
         }
         .container {
             display: flex;
-            justify-content: space-between;
-            height: 50%;
-            padding: 10px; /* Added padding to the container */
+            height: 48vh;
+            padding: 2px; /* Added padding to the container */
         }
-        #widget1{background-color: #333;}
-        #widget2{background-color: #333;}
-        #widget3{background-color: #333;}
-        #widget4{background-color: #333;}
-        #widget6{background-color: #333;}
-        #widget5{background-color: #333;}
-        .active{background-color: gold;}
-        .tradingview-widget-container {
-            padding: 4px;/* Added padding to each widget container */
+
+        .widget-container {
+            padding: 6px;/* Added padding to each widget container */
             
             border-radius: 5px; /* Optional: rounded corners */
             background-color: #333; /* Slightly transparent background */
@@ -45,6 +38,7 @@
             margin-right: 15px; /* Spacing between links */
             text-decoration: none; /* Remove underline */
         }
+       #active{background-color: gold;}
     </style>
     <script src="script.js"></script>
 </head>
@@ -59,9 +53,9 @@
     </nav>
 </header>
 <body>
-    <div class="container">
+    <div class="container" id="topRow">
         <!-- TradingView Widget 1 BEGIN -->
-        <div class="tradingview-widget-container" id="widget1" style="height:49%;width:32%">
+        <div class="widget-container" id="widget1" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -84,7 +78,7 @@
         <!-- TradingView Widget 1 END -->
 
         <!-- TradingView Widget 2 BEGIN -->
-        <div class="tradingview-widget-container" id="widget2" style="height:49%;width:32%">
+        <div class="widget-container" id="widget2" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -107,7 +101,7 @@
         <!-- TradingView Widget 2 END -->
 
         <!-- TradingView Widget 3 BEGIN -->
-        <div class="tradingview-widget-container" id="widget3" style="height:49%;width:34%">
+        <div class="widget-container" id="widget3" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -130,9 +124,9 @@
         <!-- TradingView Widget 3 END -->
     </div>
    
-    <div class="container">
+    <div class="container" id="bottomRow">
         <!-- TradingView Widget 4 BEGIN -->
-        <div class="tradingview-widget-container" id="widget4" style="height:49%;width:32%">
+        <div class="widget-container" id="widget4" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -155,7 +149,7 @@
         <!-- TradingView Widget 4 END -->
 
         <!-- TradingView Widget 5 BEGIN -->
-        <div class="tradingview-widget-container" id="widget5" style="height:49%;width:32%">
+        <div class="widget-container" id="widget5" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -178,7 +172,7 @@
         <!-- TradingView Widget 5 END -->
 
         <!-- TradingView Widget 6 BEGIN -->
-        <div class="tradingview-widget-container" id="widget6" style="height:49%;width:32%">
+        <div class="widget-container" id="widget6" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {

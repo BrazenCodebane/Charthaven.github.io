@@ -13,8 +13,8 @@
             display: inline-block;
             background-color: grey; /* Initial background color */
         }
-        .active{background-color: black;}
-        .inactive{background-color: white;}
+        .active{background-color: gold;}
+        .widget-container{background-color: #333;}
     </style>
 </head>
 <body>
@@ -38,7 +38,7 @@
             widget1.classList.toggle('active');
             setTimeout(function() {
 
-widget1.classList.toggle('inactive'); // Reset to original color
+widget1.classList.toggle('widget-container'); // Reset to original color
 
 }, 16000);
             
