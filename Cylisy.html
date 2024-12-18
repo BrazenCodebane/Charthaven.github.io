@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cylisy's Charts</title>
+    <style>
+        header {
+            height: 3vh;
+            font-size: medium;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 90vh;
+            background-color: #333;
+            color: white; /* Added for better text visibility */
+        }
+        .container {
+            display: flex;
+            height: 32vh;
+            padding: 2px; /* Added padding to the container */
+        }
+        .image-container{
+            background-color: black;
+            border-radius: 5px;
+        }
+        .widget-container {
+            padding: 6px;/* Added padding to each widget container */
+
+            border-radius: 5px; /* Optional: rounded corners */
+            background-color: #333; /* Slightly transparent background */
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px; /* Added padding to the nav */
+        }
+        nav a {
+            color: gold;
+            margin-right: 15px; /* Spacing between links */
+            text-decoration: none; /* Remove underline */
+        }
+       .active{background-color: gold;}
+    </style>
+    <script src="script.js"></script>
+</head>
+<header>
+    <nav>
+        <a href="index.html" style=" color: yellow;">Brazen</a>
+
+        <a href="swervo.html" style= "color: aqua;">Swervo</a>
+        <a href="Cylisy.html" style="color:blueviolet">Cylisy</a>
+        <a href="indexNew.html" style="color: red" >Beta</a>
+        
+
+    </nav>
+</header>
+<body>
+    <div class="container" id="topRow">
+<!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="BTCUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:BTCUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+</div>
+<!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="ETHUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:ETHUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+</div>
+      <!-- TradingView Widget 1 BEGIN -->
+      <div class="widget-container" id="SHIBUSD" style="height:100%;width:33%">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+            "autosize": true,
+            "symbol": "COINBASE:SHIBUSD",
+            "interval": "1",
+            "timezone": "America/Chicago",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "rgba(66, 66, 66, 1)",
+            "hide_top_toolbar": true,
+            "allow_symbol_change": true,
+            "calendar": false,
+            "hide_volume": true,
+            "support_host": "https://www.tradingview.com"
+        }
+        </script>
+    </div>
+    </div>
+   <div class="container" id="middleRow">
+<!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="XRPUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:XRPUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+</div>
+
+<div class="image-container" id="logo" style="height:100%;width:16.5%">
+   
+
+<img src="logo.jpg" > </div>
+<div class= "image-container" id=logo2 style="height: 100%; width: 16.5%"><img src="logo2.jpg">
+
+
+
+
+
+
+
+
+</div>
+      <!-- TradingView Widget 1 BEGIN -->
+      <div class="widget-container" id="SOLUSD" style="height:100%;width:33%">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+            "autosize": true,
+            "symbol": "COINBASE:SOLUSD",
+            "interval": "1",
+            "timezone": "America/Chicago",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "rgba(66, 66, 66, 1)",
+            "hide_top_toolbar": true,
+            "allow_symbol_change": true,
+            "calendar": false,
+            "hide_volume": true,
+            "support_host": "https://www.tradingview.com"
+        }
+        </script>
+    </div>
+
+
+    </div>
+    <div class="container" id="bottomRow">
+    <!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="XLMUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:XLMUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+</div>
+<!-- TradingView Widget 1 BEGIN -->
+<div class="widget-container" id="ADAUSD" style="height:100%;width:33%">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+        "autosize": true,
+        "symbol": "COINBASE:ADAUSD",
+        "interval": "1",
+        "timezone": "America/Chicago",
+        "theme": "dark",
+        "style": "1",
+        "locale": "en",
+        "backgroundColor": "rgba(66, 66, 66, 1)",
+        "hide_top_toolbar": true,
+        "allow_symbol_change": true,
+        "calendar": false,
+        "hide_volume": true,
+        "support_host": "https://www.tradingview.com"
+    }
+    </script>
+</div>
+      <!-- TradingView Widget 1 BEGIN -->
+      <div class="widget-container" id="LTCUSD" style="height:100%;width:33%">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+            "autosize": true,
+            "symbol": "COINBASE:LTCUSD",
+            "interval": "1",
+            "timezone": "America/Chicago",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "rgba(66, 66, 66, 1)",
+            "hide_top_toolbar": true,
+            "allow_symbol_change": true,
+            "calendar": false,
+            "hide_volume": true,
+            "support_host": "https://www.tradingview.com"
+        }
+        </script>
+    </div>
+        
+        
+    </div>
+    
+       
+</body>
+</html>

@@ -3,22 +3,8 @@
 var request = require('request');
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=UQUIS0104XJ52Y6T';
+var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&';
 
-request.get({
-    url: url,
-    json: true,
-    headers: {'User-Agent': 'request'}
-  }, (err, res, data) => {
-    if (err) {
-      console.log('Error:', err);
-    } else if (res.statusCode !== 200) {
-      console.log('Status:', res.statusCode);
-    } else {
-      // data is successfully parsed as a JSON object:
-      console.log(data);
-    }
-});
 
 // Store previous closing prices
 let previousClosingPrices = {
@@ -47,7 +33,7 @@ async function fetchClosingPrices() {
         ];
 
         for (const asset of assets) {
-            const response = await request.get(`${API_URL}?symbol=${asset.symbol}&interval=1m`);
+            const response = await request.get(`${API_URL}symbol=${asset.symbol}&interval=1m&apikey=UQUIS0104XJ52Y6T'`);
             currentClosingPrices[asset.id] = response.data[response.data.length - 1].close;
         }
 
@@ -94,9 +80,9 @@ function changeBorder(widgetId) {
         element.classList.toggle('active');
         setTimeout(function() {
 
-element.classList.toggle('widget-container'); // Reset to original color
+        element.classList.toggle('widget-container'); // Reset to original color
 
-}, 16000);
+        }, 16000);
 } }
 // Function to highlight widgets at startup
 function signalTest() {
@@ -113,17 +99,11 @@ function signalTest() {
 }
 
 // Run signalTest on page load
-function main() {
+function main() {idget6
+    signalTest();
 
 
-    widget1.classList.toggle('active');
-    setTimeout(function() {
-
-widget1.classList.toggle('widget-container'); // Reset to original color
-
-}, 16000);}
-
-
+}
 
 
 

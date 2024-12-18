@@ -5,22 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swervo's Charts</title>
     <style>
-        body{height:32vh}
-        nav{background-color: #333}
+        header {
+            height: 3vh;
+            font-size: medium;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 90vh;
+            background-color: #333;
+            color: white; /* Added for better text visibility */
+        }
+        .container {
+            display: flex;
+            height: 47vh;
+            padding: 4px; /* Added padding to the container */
+        }
+
+        .widget-container {
+            padding: 8px;/* Added padding to each widget container */
+            
+            border-radius: 5px; /* Optional: rounded corners */
+            background-color: #333; /* Slightly transparent background */
+        }
+        
+        nav {
+            background-color: #333;
+            padding: 10px; /* Added padding to the nav */
+        }
+        nav a {
+            color: yellow;
+            margin-right: 15px; /* Spacing between links */
+            text-decoration: none; /* Remove underline */
+        }
+       .active{background-color: gold;}
     </style>
 </head>
 <header>
     <nav>
       <a href="index.html" style=" color: yellow;">Brazen</a>
-     
-      <a href="swervo.html" style= "color: aqua;">Swervo</a>
-  
+
+        <a href="swervo.html" style= "color: aqua;">Swervo</a>
+        <a href=Cylisy.html" style="color:blueviolet">Cylisy</a>
+        <a href="indexNew.html" style="color: red" >Beta</a>
     </nav>
   </header>
 <body>
     <!-- TradingView Widget BEGIN -->
-  
-<div class="tradingview-widget-container" style="height:32%;width:100%">
+  <div class="container">
+<div class="tradingview-widget-container" style="height:48%;width:49%">
     <div class="tradingview-widget-container__widget" ></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
     {
@@ -42,7 +75,7 @@
   <!-- TradingView Widget END -->
 
 <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container" style="height:32%;width:100%">
+<div class="tradingview-widget-container" style="height:48%;width:49%">
     <div class="tradingview-widget-container__widget" ></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
     {
@@ -63,16 +96,16 @@
   </div>
   <!-- TradingView Widget END -->
 
-
-
+</div>
+<div class="container">
   <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container" style="height:32%;width:100%">
+<div class="tradingview-widget-container" style="height:48%;width:49%">
     <div class="tradingview-widget-container__widget" ></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
     {
     "autosize": true,
-    "symbol": "CME_MINI:MNQ1!",
-    "interval": "M",
+    "symbol": "NASDAQ:NDX",
+    "interval": "1",
     "timezone": "Etc/UTC",
     "theme": "dark",
     "style": "1",
@@ -87,14 +120,33 @@
     </script>
   </div>
   <!-- TradingView Widget END -->
+  <div class="tradingview-widget-container" style="height:48%;width:49%">
+    <div class="tradingview-widget-container__widget" ></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+    "autosize": true,
+    "symbol": "NASDAQ:NDX",
+    "interval": "5",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "backgroundColor": "rgba(66, 66, 66, 1)",
+    "hide_top_toolbar": true,
+    "allow_symbol_change": false,
+    "calendar": false,
+    "hide_volume": true,
+    "support_host": "https://www.tradingview.com"
+  }
+    </script>
+  </div>
 
 
 
 
 
 
-
-
+</div>
 
 
 </body>
