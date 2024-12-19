@@ -6,51 +6,51 @@ var request = require('request');
 var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&';
 
 
-// Store previous closing prices
-let previousClosingPrices = {
-    'widget1': null,
-    'widget2': null,
-    'widget3': null,
-    'widget4': null,
-    'widget5': null,
-    'widget6': null
-};
 
 // Function to fetch the last 1-minute candle closing price and check for price movement
 async function fetchClosingPrices() {
     try {
         // Initialize current closing prices
-        let currentClosingPrices = {};
+        
 
         // Fetch closing prices for each asset
-        const assets = [
-            { id: 'widget1', symbol: 'BTC' },
-            { id: 'widget2', symbol: 'NASDAQ' },
-            { id: 'widget3', symbol: 'ETH' },
-            { id: 'widget4', symbol: 'GOLD' },
-            { id: 'widget5', symbol: 'SP500' },
-            { id: 'widget6', symbol: 'CRUDE' }
-        ];
+        const assets=[BTC,ETH,XRP,NDX,SPX,USOIL,SHIB,DOGE,ADA,SOL,LTC]
+             BTC ={ id:'BTCUSD' ,stocksymbol:new StockSymbol("Bitcoin", 'BTCUSD', fetchClosingPrices('BTCUSD'), fetchCurrentPrice('BTCUSD')) };
+             ETH ={ id:'ETHUSD' ,stocksymbol:new StockSymbol("Ethereum", 'ETHUSD', fetchClosingPrices('ETHUSD'), fetchCurrentPrice('ETHUSD'))};
+             XRP ={ id:'XRPUSD' ,stocksymbol:new StockSymbol("Ripple", 'XRP', fetchClosingPrices('XRPUSD'), fetchCurrentPrice('XRPUSD'))};
+             NDX= {id:'NDX', stocksymbol:new StockSymbol("Nasdaq",'NDX',fetchClosingPrices('NDX'), fetchCurrentPrice('NDX'))};
+             SPX= {id:'SPX', stocksymbol:new StockSymbol("S&P", 'SPX', fetchClosingPrices('SPX'), fetchCurrentPrice('SPX'))};
+             USOIL= {id:'USOIL', stocksymbol:new StockSymbol("Oil", 'USOIL',fetchClosingPrices('USOIL'), fetchCurrentPrice('USOIL'))};
+             SHIB={id:'SHIBUSD', stocksymbol:new StockSymbol("Shiba Inu",'SHIBUSD',fetchClosingPrices('SHIBUSD'),fetchCurrentPrice('SHIBUSD'))};
+            DOGE={ id: 'DOGEUSD', stocksymbol:new StockSymbol ("DogeCoin",'DOGEUSD', fetchClosingPrices('DOGEUSD'),fetchCurrentPrice('DOGEUSD'))};
+             ADA={ id: 'ADAUSD', stocksymbol:new StockSymbol ("Cardano",'ADAUSD', fetchClosingPrices('ADAUSD'),fetchCurrentPrice('ADAUSD'))};
+             SOL={ id: 'SOLUSD', stocksymbol:new StockSymbol ("Solana",'SOLUSD', fetchClosingPrices('SOLUSD'),fetchCurrentPrice('SOLUSD'))};
+             LTC={id:'LTCUSD', stocksymbol: new StockSymbol("LiteCoin",'LTCUSD',fetchClosingPrices('LTCUSD'), fetchCurrentPrice('LTCUSD'))};
 
-        for (const asset of assets) {
-            const response = await request.get(`${API_URL}symbol=${asset.symbol}&interval=1m&apikey=UQUIS0104XJ52Y6T'`);
-            currentClosingPrices[asset.id] = response.data[response.data.length - 1].close;
-        }
+            
+        
+
+       refreshCurrentPrices(assets);
 
         // Check for price movement for each asset
         for (const asset of assets) {
-            checkPriceMovement(asset.id, currentClosingPrices[asset.id], previousClosingPrices[asset.id]);
+          asset= checkPriceMovement(asset.id, currentClosingPrices[asset.id], previousClosingPrices[asset.id]);
+            
+        
         }
 
-        // Update previous closing prices
-        previousClosingPrices = { ...currentClosingPrices };
-
-        // Log the closing prices
-        console.log(currentClosingPrices);
+        
+      
     } catch (error) {
         console.error('Error fetching closing prices:', error);
     }
 }
+
+async function refreshCurrentPrices(assets) { for (const asset of assets) {
+    const response = await request.get(`${API_URL}symbol=${asset.symbol}&interval=1m&apikey=UQUIS0104XJ52Y6T'`);
+    asset.setCurrentPrice(response.data[response.data.length - 1].close);
+}}
+
 
 // Function to check price movement
 function checkPriceMovement(widgetId, currentPrice, previousPrice) {
@@ -63,15 +63,17 @@ function checkPriceMovement(widgetId, currentPrice, previousPrice) {
             signal(widgetId); // Call signal function to highlight the widget
         }
     }
+    return widgetId, currentPrice, previousPrice;
 }
 
 
-
+//string
 function signal(widgetId) {
  if( widgetId){
     changeBorder(widgetId);
  } 
 }
+//void
 function changeBorder(widgetId) {
 
     var element = document.getElementById(widgetId);;
@@ -85,6 +87,7 @@ function changeBorder(widgetId) {
         }, 16000);
 } }
 // Function to highlight widgets at startup
+//void
 function signalTest() {
     for (var i = 1; i <= 6; i++) {
         // Construct the widget ID using template literals
@@ -99,8 +102,73 @@ function signalTest() {
 }
 
 // Run signalTest on page load
-function main() {idget6
+//MAIN
+function main() {
     signalTest();
+
+
+
+    /*
+async while (true){
+    if(checkPriceMovement()==BTCUSD){
+        if( pricechange > 7 * pipValue){
+        BTCLong();
+        }else if( pricechange < -7 * pipValue){
+        BTCShort();
+    }
+        }
+    if(checkPriceMovement()==ETHUSD){
+        if( pricechange > 7 * pipValue){
+        ETHLong();
+        }else if( pricechange < -7 * pipValue){
+        ETHShort();
+    }
+        }
+    if(checkPriceMovement()==SPY){
+        if( pricechange > 7 * pipValue){
+        SPYLong();
+        }else if( pricechange < -7 * pipValue){
+        SPYShort();
+    }
+        }
+    if(checkPriceMovement()==NDX){
+        if( pricechange > 7 * pipValue){
+        NDXLong();
+        }else if( pricechange < -7 * pipValue){
+        NDXShort();
+    }
+        }
+    if(checkPriceMovement()==USOIL){
+        if( pricechange > 7 * pipValue){
+        USOILLong();
+        }else if( pricechange < -7 * pipValue){
+        USOILShort();
+    }
+        }
+    if(checkPriceMovement()==GOLDUSD){
+        if( pricechange > 7 * pipValue){
+        GOLDLong();
+        }else if( pricechange < -7 * pipValue){
+        GOLDShort();
+    }
+        }
+
+
+
+
+
+
+
+
+        }
+
+    */
+
+
+
+
+
+
 
 
 }
