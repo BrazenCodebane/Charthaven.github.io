@@ -4,8 +4,9 @@
 
 class StockSymbol {
     constructor (name,ticker, lastClosingPrice, currentPrice) {
+        
         this.name= name;
-        this.ticker = ticker; // The stock ticker symbol
+        this.ticker = ticker; // The stock ticker symbol == id
         this.lastClosingPrice = lastClosingPrice; // The last closing price of the stock
         this.currentPrice = currentPrice; // The current price of the stock
     }
@@ -17,11 +18,11 @@ class StockSymbol {
     }
 
     Long(){
-
+         document.getElementById(this.ticker).style.backgroundColor = "green"
     }
 
     Short(){
-        
+        document.getElementById(this.ticker).style.backgroundColor = "red"
     }
 
     // Method to display stock information

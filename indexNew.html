@@ -23,7 +23,7 @@
         }
 
         .widget-container {
-            padding: 6px;/* Added padding to each widget container */
+            padding: 4px;/* Added padding to each widget container */
             
             border-radius: 5px; /* Optional: rounded corners */
             background-color: #333; /* Slightly transparent background */
@@ -40,16 +40,18 @@
         }
        .active{background-color: gold;}
     </style>
-    <script src="script.js"></script>
+
 </head>
 <header>
-    <nav>
+    <nav id="mainMenu">
         <a href="index.html" style=" color: yellow;">Brazen</a>
 
         <a href="swervo.html" style= "color: aqua;">Swervo</a>
         <a href="Cylisy.html" style="color:blueviolet">Cylisy</a>
         <a href="indexNew.html" style="color: red" >Beta</a>
+
     </nav>
+    
 </header>
 <body>
     <div class="container" id="topRow">
@@ -146,7 +148,7 @@
         <!-- TradingView Widget 4 END -->
 
         <!-- TradingView Widget 5 BEGIN -->
-        <div class="widget-container" id="SPY" style="height:100%;width:33%">
+        <div class="widget-container" id="SPX" style="height:100%;width:33%">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
             {
@@ -192,6 +194,6 @@
         <!-- TradingView Widget 6 END -->
     </div>
     
-       
+    <script src="script.js"></script>
 </body>
 </html>
