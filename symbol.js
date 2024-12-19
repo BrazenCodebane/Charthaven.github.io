@@ -16,9 +16,13 @@ class StockSymbol {
 
     }
 
+    Long(){
 
+    }
 
-
+    Short(){
+        
+    }
 
     // Method to display stock information
     //void
