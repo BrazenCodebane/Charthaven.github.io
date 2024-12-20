@@ -1,7 +1,20 @@
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=1min&apikey=UQUIS0104XJ52Y6T'
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
 
+try{
+
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}catch{
+    console.log ("Error: http request failed");
+    return "Error";
+}
+}
 
 // Function to fetch the last 1-minute candle closing price and check for price movement
 async function fetchClosingPrices(assets) {
@@ -31,13 +44,13 @@ async function fetchClosingPrices(assets) {
 // Function to refresh the current price as it fluctuates
 //TODO: CHECK THIS
 async function refreshCurrentPrices(assets) { for (const asset of assets) {
-    const response = await request.get(`${API_URL}symbol=${asset.symbol}&interval=1m&apikey=UQUIS0104XJ52Y6T'`);
+    const response = await request.get(url);
     asset.setCurrentPrice(response.data[response.data.length - 1].close);
 }}
 
 
 // Function to check price movement
-function checkPriceMovement(asset) {
+async function checkPriceMovement(asset) {
     if (asset.currentPrice != null) {
         const pricechange= (asset.currentPrice - asset.lastClosingPrice);
         const pipValue = asset.lastClosingPrice * 0.0001;
@@ -249,20 +262,15 @@ var data=httpGet(url);
 
 
 
-    while(true)
-        {
-            for (let asset of assets) {
-                changeColor
-                checkPriceMovement(asset);
+    
+       
         
-        }
-
 
 
     }
 
 
-}
+
 
 
 
