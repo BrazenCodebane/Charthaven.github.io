@@ -1,6 +1,6 @@
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=1min&apikey=UQUIS0104XJ52Y6T'
+const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
