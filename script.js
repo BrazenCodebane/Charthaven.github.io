@@ -1,7 +1,5 @@
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
-const cryptoURL= 'https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
 
 
 
@@ -240,14 +238,10 @@ function changeBorder(widgetId) {
 
 //MAIN
 function main() {
-    if (asset.isCrypto==false){
-    var data=httpGet(url);
-        }
-    else{
-    var data=httpGet(cryptoURL);
-    }
-var json=JSON.parse(data);
-    console.log(data)
+    const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
+const cryptoURL= 'https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
+
+    
 
     const assets=[BTC,ETH,XRP,NDX,SPX,USOIL,SHIB,DOGE,ADA,SOL,LTC,XLM]
             var BTC ={ id:'BTCUSD' ,stocksymbol:new StockSymbol("Bitcoin", 'BTCUSD', true,fetchClosingPrices('BTCUSD'), fetchCurrentPrice('BTCUSD')) };
@@ -262,10 +256,29 @@ var json=JSON.parse(data);
             var SOL={ id: 'SOLUSD', stocksymbol:new StockSymbol ("Solana",'SOLUSD',true, fetchClosingPrices('SOLUSD'),fetchCurrentPrice('SOLUSD'))};
             var LTC={id:'LTCUSD', stocksymbol: new StockSymbol("LiteCoin",'LTCUSD',true,fetchClosingPrices('LTCUSD'), fetchCurrentPrice('LTCUSD'))};
             var XLM={id:'XLMUSD', stocksymbol:new StockSymbol( "Stellar",'XLMUSD',true, fetchClosingPrices('XLMUSD'), fetchCurrentPrice('XLMUSD'))};
-    
+    for(asset in assets){
       // Example action: Change the background color of the element
-     
+      if (asset.isCrypto==false){
+        var data=httpGet(url);
+            }
+        else{
+        var data=httpGet(cryptoURL);
+        }
+    var json=JSON.parse(data);
+        console.log(data)
         
+}
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
