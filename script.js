@@ -1,17 +1,7 @@
 
-'use strict';
-var request = require('request');
-
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-var url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=1min&apikey=UQUIS0104XJ52Y6T'
+const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=1min&apikey=UQUIS0104XJ52Y6T'
 
-function httpGet(url)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", url, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
 
 // Function to fetch the last 1-minute candle closing price and check for price movement
 async function fetchClosingPrices(assets) {
@@ -41,38 +31,9 @@ async function fetchClosingPrices(assets) {
 // Function to refresh the current price as it fluctuates
 //TODO: CHECK THIS
 async function refreshCurrentPrices(assets) { for (const asset of assets) {
-    const response = await request.get(url);
+    const response = await request.get(`${API_URL}symbol=${asset.symbol}&interval=1m&apikey=UQUIS0104XJ52Y6T'`);
     asset.setCurrentPrice(response.data[response.data.length - 1].close);
 }}
-
-
-async function monitorAssets(assets) {
-
-    while (true) {
-
-        try {
-
-            for (let asset of assets) {
-
-                await checkPriceMovement(asset); // Ensure this function is asynchronous
-
-            }
-
-            // Wait for a specified interval before the next check (e.g., 5 seconds)
-
-            await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 ms = 5 seconds
-
-        } catch (error) {
-
-            console.error('Error checking price movement:', error);
-
-            // Optionally, you can break the loop or continue based on the error type
-
-        }
-
-    }
-
-}
 
 
 // Function to check price movement
@@ -81,7 +42,7 @@ function checkPriceMovement(asset) {
         const pricechange= (asset.currentPrice - asset.lastClosingPrice);
         const pipValue = asset.lastClosingPrice * 0.0001;
 
-           if(asset.ticker=='BTCUSD'){
+           if(widgetId =='BTCUSD'){
                 if( pricechange > 7 * pipValue){
                 BTC.Long();
                 //play sound
@@ -90,7 +51,7 @@ function checkPriceMovement(asset) {
                 //play sound
             }
                 }
-            if(asset.ticker=='ETHUSD'){
+            if(widgetId=='ETHUSD'){
                 if( pricechange > 7 * pipValue){
                 ETH.Long();
                 //play sound
@@ -99,7 +60,7 @@ function checkPriceMovement(asset) {
                 //play sound
             }
                 }
-            if(asset.ticker=='SPX'){
+            if(widgetId=='SPX'){
                 if( pricechange > 7 * pipValue){
                 SPY.Long();
                 //play sound
@@ -108,7 +69,7 @@ function checkPriceMovement(asset) {
                 //play sound
             }
                 }
-            if(asset.ticker=='NDX'){
+            if(widgetId=='NDX'){
                 if( pricechange > 7 * pipValue){
                 NDX.Long();
                 //play sound
@@ -117,42 +78,16 @@ function checkPriceMovement(asset) {
                 //play sound
             }
                 }
-            if(asset.ticker=='USOIL'){
+            if(widgetId=='USOIL'){
                 if( pricechange > 7 * pipValue){
                 USOIL.Long();
-                //play soundasync function monitorAssets(assets) {
-
-    while (true) {
-
-        try {
-
-            for (let asset of assets) {
-
-                await checkPriceMovement(asset); // Ensure this function is asynchronous
-
-            }
-
-            // Wait for a specified interval before the next check (e.g., 5 seconds)
-
-            await new Promise(resolve => setTimeout(resolve, 5000)); // 5000 ms = 5 seconds
-
-        } catch (error) {
-
-            console.error('Error checking price movement:', error);
-
-            // Optionally, you can break the loop or continue based on the error type
-
-        }
-
-    }
-
-}
+                //play sound
                 }else if( pricechange < -7 * pipValue){
                 USOIL.Short();
                 //play sound
             }
                 }
-            if(asset.ticker=='GOLDUSD'){
+            if(widgetId=='GOLDUSD'){
                 if( pricechange > 7 * pipValue){
                 GOLD.Long();
                 //play sound
@@ -161,7 +96,7 @@ function checkPriceMovement(asset) {
                 //play sound
             }
                 }
-                if(asset.ticker=='SHIB'){
+                if(widgetId=='SHIB'){
                     if( pricechange > 7 * pipValue){
                     SHIB.Long();
                     //play sound
@@ -170,7 +105,7 @@ function checkPriceMovement(asset) {
                     //play sound
                 }
                     }
-                if(asset.ticker=='XRPUSD'){
+                if(widgetId=='XRPUSD'){
                     if( pricechange > 7 * pipValue){
                     XRP.Long();
                     //play sound
@@ -179,7 +114,7 @@ function checkPriceMovement(asset) {
                     //play sound
                 }
                     }
-                if(asset.ticker=='DOGEUSD'){SPX
+                if(widgetId=='DOGEUSD'){SPX
                     if( pricechange > 7 * pipValue){
                     DOGE.Long();
                     //play sound
@@ -188,7 +123,7 @@ function checkPriceMovement(asset) {
                     //play sound
                 }
                     }
-                if(asset.ticker=='ADAUSD'){
+                if(widgetId=='ADAUSD'){
                     if( pricechange > 7 * pipValue){
                     ADA.Long();
                     //play sound
@@ -197,7 +132,7 @@ function checkPriceMovement(asset) {
                     //play sound
                 }
                     }
-                    if(asset.ticker=='SOLUSD'){
+                    if(widgetId=='SOLUSD'){
                         if( pricechange > 7 * pipValue){
                         SOL.Long();
                         //play sound
@@ -206,7 +141,7 @@ function checkPriceMovement(asset) {
                         //play sound
                     }
                         }
-                    if(asset.ticker=='XLMUSD'){
+                    if(widgetId=='XLMUSD'){
                         if( pricechange > 7 * pipValue){
                         XLM.Long();
                         //play sound
@@ -215,7 +150,7 @@ function checkPriceMovement(asset) {
                         //play sound
                     }
                         }
-                    if(asset.ticker=='LTCUSD'){
+                    if(widgetId=='LTCUSD'){
                         if( pricechange > 7 * pipValue){
                         LTC.Long();
                         //play sound
@@ -232,7 +167,7 @@ function checkPriceMovement(asset) {
             refreshCurrentPrices(assets);
         }
     }
-
+/// THIS WORKS JUST TINKER IT
 
     function changeColor(asset) {
 
@@ -288,12 +223,12 @@ function changeBorder(widgetId) {
 
 //MAIN
 function main() {
-    var data=httpGet(url);
+
+var data=httpGet(url);
     var json=JSON.parse(data);
     console.log(data)
 
-
-    const assets=[BTC,ETH,XRP,NDX,SPX,USOIL,SHIB,DOGE,ADA,SOL,LTC,XLM];
+    const assets=[BTC,ETH,XRP,NDX,SPX,USOIL,SHIB,DOGE,ADA,SOL,LTC,XLM]
              BTC ={ id:'BTCUSD' ,stocksymbol:new StockSymbol("Bitcoin", 'BTCUSD', fetchClosingPrices('BTCUSD'), fetchCurrentPrice('BTCUSD')) };
              ETH ={ id:'ETHUSD' ,stocksymbol:new StockSymbol("Ethereum", 'ETHUSD', fetchClosingPrices('ETHUSD'), fetchCurrentPrice('ETHUSD'))};
              XRP ={ id:'XRPUSD' ,stocksymbol:new StockSymbol("Ripple", 'XRPUSD', fetchClosingPrices('XRPUSD'), fetchCurrentPrice('XRPUSD'))};
@@ -309,7 +244,7 @@ function main() {
     
       // Example action: Change the background color of the element
      
-      
+        
 
 
 
@@ -317,7 +252,7 @@ function main() {
     while(true)
         {
             for (let asset of assets) {
-                
+                changeColor
                 checkPriceMovement(asset);
         
         }
