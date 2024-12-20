@@ -3,12 +3,14 @@
 
 
 class StockSymbol {
-    constructor (name,ticker, lastClosingPrice, currentPrice) {
+    constructor (name,ticker,isCrypto, lastClosingPrice, currentPrice) {
         
         this.name= name;
         this.ticker = ticker; // The stock ticker symbol == id
+        this.isCrypto=isCrypto;
         this.lastClosingPrice = lastClosingPrice; // The last closing price of the stock
         this.currentPrice = currentPrice; // The current price of the stock
+    
     }
     //void
      setCurrentPrice(currentPrice) {

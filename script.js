@@ -1,7 +1,11 @@
 
 // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
-function httpGet(theUrl)
+const url = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
+const cryptoURL= 'https://www.alphavantage.co/query?function=CRYPTO_INTRADAY&symbol='+stocksymbol.symbol+'&interval=1min&apikey=UQUIS0104XJ52Y6T'
+
+
+
+function httpGet(theUrl)    
 {
     var xmlHttp = new XMLHttpRequest();
 
@@ -236,29 +240,33 @@ function changeBorder(widgetId) {
 
 //MAIN
 function main() {
-
-var data=httpGet(url);
-    var json=JSON.parse(data);
+    if (asset.isCrypto==false){
+    var data=httpGet(url);
+        }
+    else{
+    var data=httpGet(cryptoURL);
+    }
+var json=JSON.parse(data);
     console.log(data)
 
     const assets=[BTC,ETH,XRP,NDX,SPX,USOIL,SHIB,DOGE,ADA,SOL,LTC,XLM]
-            var BTC ={ id:'BTCUSD' ,stocksymbol:new StockSymbol("Bitcoin", 'BTCUSD', fetchClosingPrices('BTCUSD'), fetchCurrentPrice('BTCUSD')) };
-            var ETH ={ id:'ETHUSD' ,stocksymbol:new StockSymbol("Ethereum", 'ETHUSD', fetchClosingPrices('ETHUSD'), fetchCurrentPrice('ETHUSD'))};
-            var XRP ={ id:'XRPUSD' ,stocksymbol:new StockSymbol("Ripple", 'XRPUSD', fetchClosingPrices('XRPUSD'), fetchCurrentPrice('XRPUSD'))};
-            var NDX= {id:'NDX', stocksymbol:new StockSymbol("Nasdaq",'NDX',fetchClosingPrices('NDX'), fetchCurrentPrice('NDX'))};
-            var SPX= {id:'SPX', stocksymbol:new StockSymbol("S&P", 'SPX', fetchClosingPrices('SPX'), fetchCurrentPrice('SPX'))};
-            var USOIL= {id:'USOIL', stocksymbol:new StockSymbol("Oil", 'USOIL',fetchClosingPrices('USOIL'), fetchCurrentPrice('USOIL'))};
-            var SHIB={id:'SHIBUSD', stocksymbol:new StockSymbol("Shiba Inu",'SHIBUSD',fetchClosingPrices('SHIBUSD'),fetchCurrentPrice('SHIBUSD'))};
-            var DOGE={ id: 'DOGEUSD', stocksymbol:new StockSymbol ("DogeCoin",'DOGEUSD', fetchClosingPrices('DOGEUSD'),fetchCurrentPrice('DOGEUSD'))};
-            var ADA={ id: 'ADAUSD', stocksymbol:new StockSymbol ("Cardano",'ADAUSD', fetchClosingPrices('ADAUSD'),fetchCurrentPrice('ADAUSD'))};
-            var SOL={ id: 'SOLUSD', stocksymbol:new StockSymbol ("Solana",'SOLUSD', fetchClosingPrices('SOLUSD'),fetchCurrentPrice('SOLUSD'))};
-            var LTC={id:'LTCUSD', stocksymbol: new StockSymbol("LiteCoin",'LTCUSD',fetchClosingPrices('LTCUSD'), fetchCurrentPrice('LTCUSD'))};
-            var XLM={id:'XLMUSD', stocksymbol:new StockSymbol( "Stellar",'XLMUSD', fetchClosingPrices('XLMUSD'), fetchCurrentPrice('XLMUSD'))};
+            var BTC ={ id:'BTCUSD' ,stocksymbol:new StockSymbol("Bitcoin", 'BTCUSD', true,fetchClosingPrices('BTCUSD'), fetchCurrentPrice('BTCUSD')) };
+            var ETH ={ id:'ETHUSD' ,stocksymbol:new StockSymbol("Ethereum", 'ETHUSD',true, fetchClosingPrices('ETHUSD'), fetchCurrentPrice('ETHUSD'))};
+            var XRP ={ id:'XRPUSD' ,stocksymbol:new StockSymbol("Ripple", 'XRPUSD',true, fetchClosingPrices('XRPUSD'), fetchCurrentPrice('XRPUSD'))};
+            var NDX= {id:'NDX', stocksymbol:new StockSymbol("Nasdaq",'NDX',false,fetchClosingPrices('NDX'), fetchCurrentPrice('NDX'))};
+            var SPX= {id:'SPX', stocksymbol:new StockSymbol("S&P", 'SPX',false, fetchClosingPrices('SPX'), fetchCurrentPrice('SPX'))};
+            var USOIL= {id:'USOIL', stocksymbol:new StockSymbol("Oil", 'USOIL',false,fetchClosingPrices('USOIL'), fetchCurrentPrice('USOIL'))};
+            var SHIB={id:'SHIBUSD', stocksymbol:new StockSymbol("Shiba Inu",'SHIBUSD',true,fetchClosingPrices('SHIBUSD'),fetchCurrentPrice('SHIBUSD'))};
+            var DOGE={ id: 'DOGEUSD', stocksymbol:new StockSymbol ("DogeCoin",'DOGEUSD',true, fetchClosingPrices('DOGEUSD'),fetchCurrentPrice('DOGEUSD'))};
+            var ADA={ id: 'ADAUSD', stocksymbol:new StockSymbol ("Cardano",'ADAUSD',true, fetchClosingPrices('ADAUSD'),fetchCurrentPrice('ADAUSD'))};
+            var SOL={ id: 'SOLUSD', stocksymbol:new StockSymbol ("Solana",'SOLUSD',true, fetchClosingPrices('SOLUSD'),fetchCurrentPrice('SOLUSD'))};
+            var LTC={id:'LTCUSD', stocksymbol: new StockSymbol("LiteCoin",'LTCUSD',true,fetchClosingPrices('LTCUSD'), fetchCurrentPrice('LTCUSD'))};
+            var XLM={id:'XLMUSD', stocksymbol:new StockSymbol( "Stellar",'XLMUSD',true, fetchClosingPrices('XLMUSD'), fetchCurrentPrice('XLMUSD'))};
     
       // Example action: Change the background color of the element
      
         
-
+}
 
 
 
@@ -267,7 +275,7 @@ var data=httpGet(url);
         
 
 
-    }
+   
 
 
 
